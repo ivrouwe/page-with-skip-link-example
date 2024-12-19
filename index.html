@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>"Page With Skip Link" Example</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <p class="skip-link"><a href="#main">Skip to main content</a></p>
+
+        <p class="website-name"><a href="../page-with-skip-link-example" aria-current="page">Website Name</a></p>
+
+        <nav
+            id="navigation--site-navigation"
+            aria-labelledby="site-navigation__fragment--site"
+            class="site-navigation"
+        >
+            <h2
+                id="site-navigation"
+                class="visually-hidden"
+            ><span id="site-navigation__fragment--site">Site</span> Navigation</h2>
+
+            <ul>
+                <li>
+                    <a href="#">Dummy Link A</a>
+                </li>
+
+                <li>
+                    <a href="#">Dummy Link B</a>
+                </li>
+
+                <li>
+                    <a href="#">Dummy Link C</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1
+            id="main"
+            tabindex="-1"
+        >Welcome to Website Name!</h1>
+
+        <p>Some content.</p>
+    </main>
+</body>
+</html>

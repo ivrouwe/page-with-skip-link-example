@@ -1,0 +1,135 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+html {
+    --color: #111;
+    --background-color: #fff;
+    --background-color--alt: #d3d3d3;
+
+    margin: 0;
+    color: var(--color);
+    background-color: var(--background-color);
+}
+
+body {
+    margin: 0;
+    display: grid;
+    grid-template-columns: minmax(1rem, 1fr) minmax(auto, 75rem) minmax(1rem, 1fr);
+
+    &::before {
+        content: "";
+        display: block;
+        background-color: var(--background-color--alt);
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+    }
+
+    & > header {
+        grid-row: 1 / 2; 
+    }
+
+    & > * {
+        grid-column: 2 / 3;
+    }
+}
+
+header {
+    /* Shared header styles (regardless of state of custom element) */
+    padding-block: 1rem;
+
+    @media (min-width: 47em) {
+        display: grid;
+        grid-template-columns: 1rem auto 1fr 1rem;
+    }
+}
+
+header > .skip-link {
+    position: absolute;
+    
+    &:not(:focus-within) {
+        inset-inline-start: -62.5rem;
+    }
+    
+    &:focus-within {
+        margin: 0.25rem;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+    }
+
+    > a {
+        display: block;
+        padding: 1rem;
+        border: 0.125rem solid var(--color);
+        background-color: var(--background-color);
+        color: var(--color);
+    }
+}
+
+header > .website-name {
+    grid-column: 2 / 3;
+    margin: 0;
+
+    > a {
+        display: block;
+        padding: 0.5rem;
+        color: var(--color);
+        font-family: sans-serif;
+        font-size: 2rem;
+        font-weight: 900;
+        text-decoration: none;
+
+        @media (min-width: 47em) {
+            padding-inline: 1rem;
+            margin-inline-start: -2rem;
+        }
+    }
+}
+
+header > nav.site-navigation {
+    grid-column: 3 / 4;
+    align-content: center;
+
+    > ul,
+    > ol {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        margin-inline-start: -0.5rem;
+
+        @media (min-width: 47em) {
+            justify-content: end;
+        }
+
+        > li > a {
+            display: block;
+            padding: 1rem;
+            border-radius: 1rem;
+            color: var(--color);
+
+            &[aria-current="page"] {
+                color: var(--background-color);
+                background-color: var(--color);
+            }
+        }
+    }
+}
+
+button {
+    background-color: #efefef;
+    color: var(--color);
+}
